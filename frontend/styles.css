@@ -1,0 +1,39 @@
+/* frontend/styles.css */
+html, body, #map {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#topbar {
+  position: absolute;
+  z-index: 1000;
+  left: 10px;
+  top: 10px;
+  background: rgba(255,255,255,0.95);
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+#statusbar {
+  position: absolute;
+  z-index: 1000;
+  right: 10px;
+  top: 10px;
+  background: rgba(255,255,255,0.95);
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+#map { position: absolute; top: 60px; bottom: 0; left: 0; right: 0; }
+
+#safetyIndicator.safe { color: green; font-weight: bold; }
+#safetyIndicator.caution { color: orange; font-weight: bold; }
+#safetyIndicator.danger { color: red; font-weight: bold; }
+
+button { cursor:pointer; padding:6px 10px; border-radius:4px; border:1px solid #ccc; background:#fff; }
