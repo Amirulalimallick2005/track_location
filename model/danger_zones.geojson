@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "id": "zone-1", "name": "Sample Danger Zone" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [91.69, 26.79],
+            [91.71, 26.79],
+            [91.71, 26.77],
+            [91.69, 26.77],
+            [91.69, 26.79]
+          ]
+        ]
+      }
+    }
+  ]
+}
