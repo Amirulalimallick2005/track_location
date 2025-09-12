@@ -4,3 +4,4 @@ shapely==2.0.1
 pyproj==3.6.0
 requests==2.31.0
 gunicorn
+numpy<2
