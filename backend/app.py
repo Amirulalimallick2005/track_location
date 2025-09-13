@@ -9,30 +9,7 @@ from utils import log_event
 
 BASE_DIR = Path(__file__).resolve().parents[0]
 MODEL_GEOJSON = BASE_DIR / "model" / "danger_zones.geojson"
-DB_PATH = BASE_DIR / "database" / "tracking.db"
 
-# ensure database folder exists
-DB_PATH.parent.mkdir(exist_ok=True)
-
-# initialize database connection
-conn = sqlite3.connect(DB_PATH, check_same_thread=False)
-c = conn.cursor()
-c.execute('''
-CREATE TABLE IF NOT EXISTS events (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    tourist_id TEXT,
-    latitude REAL,
-    longitude REAL,
-    status TEXT,
-    safety_score REAL,
-    distance_to_nearest_zone_m REAL,
-    reason TEXT,
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
-)
-''')
-conn.commit()
-
-# Flask app
 app = Flask(__name__, static_folder="../frontend", static_url_path="/")
 CORS(app)
 
@@ -83,19 +60,7 @@ def check_safety():
     })
 
     # Insert event into database
-    c.execute('''
-    INSERT INTO events (tourist_id, latitude, longitude, status, safety_score, distance_to_nearest_zone_m, reason)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-    ''', (
-        tourist_id,
-        lat,
-        lon,
-        result["status"],
-        result["safety_score"],
-        result["distance_to_nearest_zone_m"],
-        result["reason"]
-    ))
-    conn.commit()
+ 
 
     return jsonify(result), 200
 
