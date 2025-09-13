@@ -1,5 +1,5 @@
 
-const BACKEND_URL = "https://track-location-4.onrender.com";
+const BACKEND_URL = "https://track-location-5.onrender.com";
 const CHECK_ENDPOINT = `${BACKEND_URL}/api/check_safety`;
 
 const enableBtn = document.getElementById("enableBtn");
